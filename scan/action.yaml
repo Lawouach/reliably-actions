@@ -1,0 +1,34 @@
+name: 'Reliably scan action'
+description: 'Check for Reliably Advice and Suggestions'
+author: 'Reliably'
+branding:
+  icon: "check-circle"
+  color: "red"
+inputs:
+  resource:
+    description: 'Type of resource to scan for'
+    required: false
+    default: 'kubernetes'
+  directory:
+    description: 'Directory subject to verification'
+    required: false
+    default: '.'
+  format:
+    description: 'Report format'
+    required: false
+    default: 'simple'
+  output:
+    description: 'Write report to output file instead of stdout (default)'
+    required: false
+    default: ''
+runs:
+  using: 'docker'
+  image: 'docker://ghcr.io/reliablyhq/cli/cli:latest'
+  args:
+  - scan
+  - ${{ inputs.resource }}
+  - ${{ inputs.directory }}
+  - --format
+  - ${{ inputs.format }}
+  - --output
+  - ${{ inputs.output }}

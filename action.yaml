@@ -1,0 +1,9 @@
+name: 'Reliably'
+description: 'Use Reliably in your GitHub workflow'
+author: 'Reliably'
+branding:
+  icon: "check-circle"
+  color: "red"
+runs:
+  using: 'docker'
+  image: 'docker://ghcr.io/reliablyhq/cli/cli:latest'

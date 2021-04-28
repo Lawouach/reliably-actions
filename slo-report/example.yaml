@@ -1,0 +1,15 @@
+# A sample workflow which generates your SLO report.
+
+name: Reliably SLO workflow
+on: push
+
+jobs:
+  slo-report:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout source code
+        uses: actions/checkout@v2
+      - name: Run Reliably
+        uses: reliablyhq/actions/slo-report@v1
+        env:
+          RELIABLY_TOKEN: ${{ secrets.RELIABLY_TOKEN }}

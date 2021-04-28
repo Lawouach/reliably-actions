@@ -1,0 +1,13 @@
+# A sample workflow for downloading and installing the Reliably CLI
+# into your runner.
+
+name: Setup Reliably in your workflow
+on: push
+jobs:
+  setup-reliably:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout source code
+        uses: actions/checkout@v2
+      - name: Download and install Reliably CLI
+        uses: reliablyhq/gh-action/setup@v1

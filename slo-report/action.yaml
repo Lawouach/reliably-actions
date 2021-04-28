@@ -1,0 +1,31 @@
+name: 'Reliably SLO Report action'
+description: 'Generate your SLO report'
+author: 'Reliably'
+branding:
+  icon: "check-circle"
+  color: "red"
+inputs:
+  manifest:
+    description: 'The location of the manifest file'
+    required: false
+    default: 'reliably.yaml'
+  format:
+    description: 'Report format'
+    required: false
+    default: 'simple'
+  output:
+    description: 'Write report to output file instead of stdout (default)'
+    required: false
+    default: ''
+runs:
+  using: 'docker'
+  image: 'docker://ghcr.io/reliablyhq/cli/cli:latest'
+  args:
+  - slo
+  - report
+  - --manifest
+  - ${{ inputs.manifest }}
+  - --format
+  - ${{ inputs.format }}
+  - --output
+  - ${{ inputs.output }}
