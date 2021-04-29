@@ -1,6 +1,6 @@
 # Reliably GitHub Action
 
-Reliably integrates with GitHub as a [GitHub Action][gh-action] that you can add to your own GitHub CI/CD workflows. Our Action is available on GitHub's [Marketplace][view-on-marketplace].
+Reliably integrates with GitHub as a [GitHub Action][gh-action] that you can add to your own GitHub CI/CD workflows.
 
 [gh-action]: https://github.com/features/actions
 [view-on-marketplace]: https://github.com/marketplace/actions/reliably-github-action
@@ -19,8 +19,8 @@ jobs:
     steps:
       - name: 'Checkout source code'
         uses: actions/checkout@v2
-      - name: Get Reliably suggestions
-        uses: reliablyhq/gh-action@v1
+      - name: Run Reliably scan
+        uses: reliablyhq/actions/scan@v1
         env:
           RELIABLY_TOKEN: ${{ secrets.RELIABLY_TOKEN }}
 ```
@@ -62,7 +62,7 @@ jobs:
       - name: 'Checkout source code'
         uses: actions/checkout@v2
       - name: Get Reliably suggestions
-        uses: reliablyhq/gh-action@v1
+        uses: reliablyhq/actions/scan@v1
         with:
           directory: './manifests'
 ```
@@ -111,7 +111,7 @@ jobs:
       - name: 'Checkout source code'
         uses: actions/checkout@v2
       - name: Run Reliably to check Kubernetes manifests for reliability advice
-        uses: reliablyhq/gh-action@v1
+        uses: reliablyhq/actions/scan@v1
         continue-on-error: true
 ```
 
@@ -126,7 +126,7 @@ use the `format` property, as follow:
 
 ```yaml
 - name: 'Run Reliably'
-  uses: reliablyhq/gh-action@v1
+  uses: reliablyhq/actions/scan@v1
   with:
     format: "sarif"
 ```
@@ -136,16 +136,9 @@ rather than to the standard output, by using the `output` property:
 
 ```yaml
 - name: 'Run Reliably'
-  uses: reliablyhq/gh-action@v1
+  uses: reliablyhq/actions/scan@v1
   with:
     output: "reliably.sarif"
 ```
 
 As a reminder, the `format` and `output` properties can be combined together.
-
-### Install Reliably's CLI in your workflow runner
-
-You can also setup Reliably within your workflow, so that the command
-is directly available in a job step.
-
-You will find the `Setup Reliably` action details [here](https://github.com/reliablyhq/gh-action/tree/main/setup).

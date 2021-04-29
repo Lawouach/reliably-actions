@@ -11,7 +11,7 @@ jobs:
     steps:
       - name: Checkout source code
         uses: actions/checkout@v2
-      - name: Run Reliably
+      - name: Run Reliably scan
         uses: reliablyhq/actions/scan@v1
         env:
           RELIABLY_TOKEN: ${{ secrets.RELIABLY_TOKEN }}

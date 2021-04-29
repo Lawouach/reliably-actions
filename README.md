@@ -1,9 +1,9 @@
-# Reliably GitHub Action
+# Reliably GitHub Actions
 
-Reliably integrates with GitHub as a [GitHub Action][gh-action] that you can add to your own GitHub CI/CD workflows. Our Action is available on GitHub's [Marketplace][view-on-marketplace].
+Reliably integrates with GitHub as a [GitHub Action][gh-action] that you can add to your own GitHub CI/CD workflows. Our Actions are available on GitHub's [Marketplace][view-on-marketplace].
 
 [gh-action]: https://github.com/features/actions
-[view-on-marketplace]: https://github.com/marketplace/actions/reliably-github-action
+[view-on-marketplace]: https://github.com/marketplace/actions/reliably-actions
 
 ## Available actions
 
@@ -16,16 +16,16 @@ within your workflows:
 
 ## Generic action
 
-The following action allows any user to use the CLI as a GitHub action:
+The following action allows users to use the CLI directly as a GitHub action:
 
 ```yaml
 uses: reliablyhq/actions@v1
-env:
-  RELIABLY_TOKEN: ${{ secrets.RELIABLY_TOKEN }}
-continue-on-error: true
 with:
   args: --help
 ```
+
+Arguments to the CLI can be passed using the `with.args` syntax. [See the doc](https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstepswithargs).
+
 
 ## Getting your Reliably token
 

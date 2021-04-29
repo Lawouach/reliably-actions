@@ -1,8 +1,9 @@
 # Reliably Setup Action
 
 A [GitHub Action](https://github.com/features/actions) for installing
-[Reliably CLI](https://github.com/reliablyhq/cli) to check for
-Reliably Advice and Suggestions.
+[Reliably CLI](https://github.com/reliablyhq/cli) within your workflow,
+so that the command is directly available in a job step.
+
 
 You can use the Action as follows:
 
@@ -13,8 +14,7 @@ jobs:
   setup-reliably:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@master
-    - uses: reliablyhq/gh-action/setup@v1
+    - uses: reliablyhq/actions/setup@v1
 ```
 
 The Reliably Setup Action has properties which are passed to the underlying script.
@@ -40,7 +40,6 @@ jobs:
   setup-reliably:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@master
     - uses: reliablyhq/actions/setup@v1
       id: reliably
       with:

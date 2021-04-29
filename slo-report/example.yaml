@@ -9,7 +9,7 @@ jobs:
     steps:
       - name: Checkout source code
         uses: actions/checkout@v2
-      - name: Run Reliably
+      - name: Run Reliably SLO report generation
         uses: reliablyhq/actions/slo-report@v1
         env:
           RELIABLY_TOKEN: ${{ secrets.RELIABLY_TOKEN }}
