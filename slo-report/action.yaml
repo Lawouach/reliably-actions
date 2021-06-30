@@ -12,7 +12,7 @@ inputs:
   format:
     description: 'Report format'
     required: false
-    default: 'simple'
+    default: 'text'
   output:
     description: 'Write report to output file instead of stdout (default)'
     required: false
