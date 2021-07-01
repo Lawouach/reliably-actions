@@ -23,6 +23,7 @@ jobs:
         uses: reliablyhq/actions/scan@v1
         env:
           RELIABLY_TOKEN: ${{ secrets.RELIABLY_TOKEN }}
+          RELIABLY_ORG: ${{ secrets.RELIABLY_ORG }}
 ```
 The code above adds a new job called `reliably` that checks out the code from your repository and then uses the Reliably GitHub Action to obtain any reliability advice and suggestions based on the code in the checked out repository.
 

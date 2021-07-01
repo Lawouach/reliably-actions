@@ -16,6 +16,7 @@ jobs:
     - uses: reliablyhq/actions/slo-report@v1
       env:
         RELIABLY_TOKEN: ${{ secrets.RELIABLY_TOKEN }}
+        RELIABLY_ORG: ${{ secrets.RELIABLY_ORG }}
 ```
 
 The Reliably SLO Report Action has properties which are passed to the underlying script.
@@ -40,6 +41,7 @@ jobs:
     - uses: reliablyhq/actions/slo-report@v1
       env:
         RELIABLY_TOKEN: ${{ secrets.RELIABLY_TOKEN }}
+        RELIABLY_ORG: ${{ secrets.RELIABLY_ORG }}
       with:
         manifest: custom.yaml
         format: json
