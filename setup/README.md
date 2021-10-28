@@ -4,7 +4,6 @@ A [GitHub Action](https://github.com/features/actions) for installing
 [Reliably CLI](https://github.com/reliablyhq/cli) within your workflow,
 so that the command is directly available in a job step.
 
-
 You can use the Action as follows:
 
 ```yaml
