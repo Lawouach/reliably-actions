@@ -26,7 +26,6 @@ with:
 
 Arguments to the CLI can be passed using the `with.args` syntax. [See the doc](https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstepswithargs).
 
-
 ## Getting your Reliably token
 
 Most of our actions required a valid Reliably access token for making calls
@@ -38,6 +37,7 @@ env:
 ```
 
 You can retrieve your access token once authenticated with the CLI:
-```
-$ reliably auth status --show-token
+
+```console
+reliably auth status --show-token
 ```
