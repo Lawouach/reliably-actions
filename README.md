@@ -13,6 +13,7 @@ within your workflows:
 - [Setup](setup): Install Reliably CLI directly in your workflow runner
 - [Scan](scan): Scan your source code for suggestions
 - [SLO Report](slo-report): Generate your SLO report
+- [Create An Operation](create-operation): Inform Reliably about an operation that has happened in your pipeline.
 
 ## Generic action
 

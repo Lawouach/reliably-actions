@@ -1,0 +1,18 @@
+name: Reliably workflow
+on: push
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      # - uses: some action that builds stuff...
+      - uses: reliablyhq/actions/create-operation@v1
+        env:
+          RELIABLY_TOKEN: ${{ secrets.RELIABLY_TOKEN }}
+          RELIABLY_ORG: ${{ secrets.RELIABLY_ORG }}
+        continue-on-error: true
+        with:
+          service: my awesome service
+          type: build
+          outcome: success

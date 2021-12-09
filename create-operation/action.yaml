@@ -1,0 +1,29 @@
+name: 'Reliably create operation action'
+description: 'Create an operation and tell Reliably about it'
+author: 'Reliably'
+branding:
+  icon: "check-circle"
+  color: "red"
+inputs:
+  service:
+    description: 'The name of your service'
+    required: true
+  type:
+    description: 'The type of operation you are performing'
+    required: true
+  outcome:
+    description: 'The outcome of the operation'
+    required: true
+runs:
+  using: 'docker'
+  image: 'docker://ghcr.io/reliablyhq/cli/cli:latest'
+  args:
+  - entity
+  - create
+  - operation
+  - --service
+  - ${{ inputs.service }}
+  - --type
+  - ${{ inputs.type }}
+  - --outcome
+  - ${{ inputs.outcome }}
