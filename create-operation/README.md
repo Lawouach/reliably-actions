@@ -3,7 +3,7 @@
 Reliably integrates with GitHub as a [GitHub Action][gh-action] that you can add to your own GitHub CI/CD workflows.
 
 [gh-action]: https://github.com/features/actions
-[view-on-marketplace]: https://github.com/marketplace/actions/reliably-github-action
+[view-on-marketplace]: https://github.com/marketplace/actions/reliably-actions
 
 You use the Reliably GitHub Action by including it in any of your GitHub workflow
 YAML files:
