@@ -9,18 +9,13 @@ jobs:
   k8s-code-scanning:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout source code
-        uses: actions/checkout@v2
-      - name: Run Reliably scan
-        uses: reliablyhq/actions/scan@v1
+      - uses: actions/checkout@v2
+      - uses: reliablyhq/actions/scan@v1
         env:
           RELIABLY_TOKEN: ${{ secrets.RELIABLY_TOKEN }}
           RELIABLY_ORG: ${{ secrets.RELIABLY_ORG }}
         continue-on-error: true
         with:
-          format: "sarif"
-          output: "reliably.sarif"
-      - name: Upload report to GitHub Code Scanning.
-        uses: github/codeql-action/upload-sarif@v1
-        with:
-          sarif_file: reliably.sarif
+          service: my awesome service
+          type: build
+          outcome: success
