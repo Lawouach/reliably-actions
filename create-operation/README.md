@@ -26,7 +26,7 @@ jobs:
           outcome: success
 ```
 
-The code above adds a new job called `reliably` that checks out the code from your repository and then uses the Reliably GitHub Action to obtain any reliability advice and suggestions based on the code in the checked out repository.
+The code above adds a new job called `reliably`. This job tells reliably that an operation has occured on a particular service, and the outcome of that operation.
 
 The Reliably GitHub Action has properties which are passed to the underlying image.
 These are passed to the action using `with`.
