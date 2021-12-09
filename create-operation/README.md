@@ -15,13 +15,15 @@ jobs:
   reliably:
     runs-on: ubuntu-latest
     steps:
-      - name: 'Checkout source code'
-        uses: actions/checkout@v2
-      - name: Run Reliably scan
-        uses: reliablyhq/actions/operation@v1
+      - uses: actions/checkout@v2
+      - uses: reliablyhq/actions/operation@v1
         env:
           RELIABLY_TOKEN: ${{ secrets.RELIABLY_TOKEN }}
           RELIABLY_ORG: ${{ secrets.RELIABLY_ORG }}
+        with:
+          service: my awesome service
+          type: build
+          outcome: success
 ```
 
 The code above adds a new job called `reliably` that checks out the code from your repository and then uses the Reliably GitHub Action to obtain any reliability advice and suggestions based on the code in the checked out repository.
@@ -48,23 +50,4 @@ You can retrieve your access token once authenticated with the CLI:
 
 ```console
 reliably auth status --show-token
-```
-
-## Specifying a custom folder for review
-
-```yaml
-name: Example workflow using Reliably with a custom folder
-on: push
-jobs:
-  demo:
-    runs-on: ubuntu-latest
-    steps:
-      - name: 'Checkout source code'
-        uses: actions/checkout@v2
-      - name: Get Reliably suggestions
-        uses: reliablyhq/actions/operation@v1
-        with:
-          service: my awesome service
-          type: build
-          outcome: success
 ```

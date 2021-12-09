@@ -1,16 +1,13 @@
-# A sample workflow which checks out the code for suggestions
-# using Reliably.
-# The results are then uploaded to GitHub Security Code Scanning.
-
 name: Reliably workflow
 on: push
 
 jobs:
-  k8s-code-scanning:
+  build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: reliablyhq/actions/scan@v1
+      # - uses: some action that builds stuff...
+      - uses: reliablyhq/actions/create-operation@v1
         env:
           RELIABLY_TOKEN: ${{ secrets.RELIABLY_TOKEN }}
           RELIABLY_ORG: ${{ secrets.RELIABLY_ORG }}
