@@ -54,10 +54,11 @@ def run():
         print("no matching resources found")
         return
 
-    if args.save_as not in [None, "noop", "stdout"]:
+    to = args.save_as
+    if to and not to.endswith(("noop", "stdout")):
         with open(args.save_as, "w") as f:
             f.write(result)
-    elif args.save_as == "stdout":
+    elif to.endswith("stdout"):
         print(result)
     
     if args.format == "json" and args.if_no_budget_then not in [None, "noop"]:

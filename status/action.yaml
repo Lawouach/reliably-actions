@@ -30,4 +30,4 @@ runs:
   steps:
     - id: fetch-reliably-status
       shell: bash
-      run: python main.py --format ${{ inputs.format }} --kind ${{ inputs.kind }} --save-as ${{ inputs.to }} --if-no-budget-then ${{ inputs.if_lacking_budget }} ${{ inputs.selector }}
+      run: python ${{ github.action_path }}/main.py --format ${{ inputs.format }} --kind ${{ inputs.kind }} --save-as ${{ github.workspace }}/${{ inputs.to }} --if-no-budget-then ${{ inputs.if_lacking_budget }} ${{ inputs.selector }}
