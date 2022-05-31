@@ -40,7 +40,7 @@ def run():
         c = f"{c} --kind {args.kind}"
 
     if args.selector:
-        c = f"{c} --selector {args.selector}"
+        c = f"{c} --selector {args.selector.strip()}"
 
     c = shlex.split(c)
     p = subprocess.run(
@@ -50,7 +50,7 @@ def run():
 
     result = p.stdout.strip()
 
-    if result is None:
+    if result in ["null", "[]"]:
         print("no matching resources found")
         return
 
