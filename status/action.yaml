@@ -7,25 +7,38 @@ branding:
 inputs:
   selector:
     description: 'Comma seperate list of key,value pairs matching labels of the objectives or scorecards to read status from'
-    required: true
+    required: false
   format:
     description: 'The format of the output: json, yaml or text'
-    required: true
+    required: false
     default: json
   kind:
-    description: 'Scope the query to only look for a certain kind of resource: objective, scorecards, score'
-    required: true
+    description: 'Scope the query to only look for a certain kind of entities: objective, scorecards, score'
+    required: false
     default: objective
+  to:
+    description: 'Where to send the output, can be stdout or a filepath. Use "noop" for no output'
+    required: false
+    default: stdout
+  if_lacking_budget:
+    description: 'Strategy when an entity has no more budget. Set to "fail" to exit the job or "warn" to only log the faulty entities'
+    required: false
+    default: noop
+
 runs:
-  using: 'docker'
-  image: 'docker://ghcr.io/reliablyhq/cli/cli:latest'
-  args:
-  - status
-  - create
-  - operation
-  - --format
-  - ${{ inputs.format }}
-  - --kind
-  - ${{ inputs.kind }}
-  - --selector
-  - ${{ inputs.selector }}
+  using: "composite"
+  steps:
+    - id: Fetch Reliabily status
+      shell: bash
+      run: |
+        - python
+        - main.py
+        - --format
+        - ${{ inputs.format }}
+        - --kind
+        - ${{ inputs.kind }}
+        - --save-as
+        - ${{ inputs.filepath }}
+        - --if-no-budget-then
+        - ${{ inputs.if_lacking_budget }}
+        - ${{ inputs.selector }}

@@ -3,16 +3,12 @@ on: push
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     steps:
-      - uses: actions/checkout@v2
-      # - uses: some action that builds stuff...
-      - uses: reliablyhq/actions/operation@v1
+      - uses: reliablyhq/actions/setup@v1
+      - uses: reliablyhq/actions/status@v1
         env:
           RELIABLY_TOKEN: ${{ secrets.RELIABLY_TOKEN }}
           RELIABLY_ORG: ${{ secrets.RELIABLY_ORG }}
-        continue-on-error: true
         with:
-          service: my awesome service
-          type: build
-          outcome: success
+          selector: app=payment
