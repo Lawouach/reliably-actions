@@ -14,6 +14,7 @@ within your workflows:
 - [Scan](scan): Scan your source code for suggestions
 - [SLO Report](slo-report): Generate your SLO report
 - [Create An Operation](operation): Inform Reliably about an operation that has happened in your pipeline.
+- [Status](status): Inform Reliably about an operation that has happened in your pipeline.
 
 ## Generic action
 
