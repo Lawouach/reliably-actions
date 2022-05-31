@@ -10,7 +10,8 @@ import sys
 def setup_parser():
     parser = argparse.ArgumentParser()
     parser.add_argument(
-        "selector", help="fetch output for matching entities", nargs='?')
+        "selector", help="fetch output for matching entities",
+        nargs=argparse.REMAINDER)
     parser.add_argument(
         "--format", help="format of the output", default="json",
         choices=["json", "yaml", "text"])
