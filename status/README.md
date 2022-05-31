@@ -33,9 +33,11 @@ These are passed to the action using `with`.
 
 | Property | Description |
 | --- | --- |
-| selector | Comma seperate k=v pairs of labels of your objectives/scorecards |
-| kind | The kind of resources to scope the selectors to: objective, score, scorecard |
-| format | The format of the status output: json, yaml or text |
+| selector | Comma seperate k=v pairs of labels of your objectives/scorecards. Values with spaces should be quoted |
+| kind | The kind of resources to scope the selectors to: `objective`, `score`, `scorecard` |
+| format | The format of the status output: `json`, `yaml` or `text` |
+| to | The name of a file to save results to or `stdout` |
+| if_lacking_budget | Strategy when objectives aren't reaching their budgets: `fail` (sets the process exit code to `1 ` to fail the job) or `warn` |
 
 ## Getting your Reliably token
 
