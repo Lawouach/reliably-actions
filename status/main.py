@@ -42,6 +42,7 @@ def run():
     if args.selector:
         c = f"{c} --selector {args.selector.strip()}"
 
+    print(repr(c))
     c = shlex.split(c)
     p = subprocess.run(
         c, text=True, capture_output=True, encoding="utf-8",
