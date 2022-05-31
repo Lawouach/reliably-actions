@@ -41,7 +41,8 @@ def run():
         c = f"{c} --kind {args.kind}"
 
     if args.selector:
-        c = f'{c} --selector "{args.selector.strip()}"'
+        s = ''.join(args.selector).strip()
+        c = f'{c} --selector "{s}"'
 
     print(repr(c))
     c = shlex.split(c)
