@@ -1,0 +1,31 @@
+name: 'Reliably status action'
+description: 'Fetch the latest status of objectives or scorecards'
+author: 'Reliably'
+branding:
+  icon: "check-circle"
+  color: "red"
+inputs:
+  selector:
+    description: 'Comma seperate list of key,value pairs matching labels of the objectives or scorecards to read status from'
+    required: true
+  format:
+    description: 'The format of the output: json, yaml or text'
+    required: true
+    default: json
+  kind:
+    description: 'Scope the query to only look for a certain kind of resource: objective, scorecards, score'
+    required: true
+    default: objective
+runs:
+  using: 'docker'
+  image: 'docker://ghcr.io/reliablyhq/cli/cli:latest'
+  args:
+  - status
+  - create
+  - operation
+  - --format
+  - ${{ inputs.format }}
+  - --kind
+  - ${{ inputs.kind }}
+  - --selector
+  - ${{ inputs.selector }}
