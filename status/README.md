@@ -15,7 +15,6 @@ jobs:
   reliably:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
       - uses: reliablyhq/actions/status@v1
         env:
           RELIABLY_TOKEN: ${{ secrets.RELIABLY_TOKEN }}
