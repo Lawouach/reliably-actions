@@ -28,7 +28,7 @@ inputs:
 runs:
   using: "composite"
   steps:
-    - id: Fetch Reliabily status
+    - id: fetch-reliably-status
       shell: bash
       run: |
         - python
