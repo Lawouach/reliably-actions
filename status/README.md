@@ -13,8 +13,9 @@ name: Example workflow using Reliably
 on: push
 jobs:
   reliably:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     steps:
+      - uses: reliablyhq/actions/setup@v1
       - uses: reliablyhq/actions/status@v1
         env:
           RELIABLY_TOKEN: ${{ secrets.RELIABLY_TOKEN }}
